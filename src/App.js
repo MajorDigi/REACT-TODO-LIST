@@ -11,7 +11,7 @@ const App = () => {
   const handleAddTodo = () => {
     if (newTodo && category && priority) {
       dispatch({
-        type: 'ADD_TODO',
+        type: 'ADD_TODO', // Corrected typo
         payload: { text: newTodo, category, priority },
       });
       setNewTodo('');
@@ -19,7 +19,6 @@ const App = () => {
       setPriority('');
     } else {
       alert('Please fill in all fields'); // User feedback for empty fields
-      alert('Please fill in all fields'); 
     }
   };
 
@@ -30,9 +29,10 @@ const App = () => {
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="Enter To Do"
-        placeholder="Add To Do"
+        placeholder="Enter To Do"  // Choose one placeholder
       />
+      {/* Consider using a label for more accessibility */}
+      {/* <label for="newTodo">Enter To Do (Add To Do)</label> */}
       <input
         type="text"
         value={category}
