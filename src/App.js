@@ -18,7 +18,7 @@ const App = () => {
       setCategory('');
       setPriority('');
     } else {
-      alert('Please fill in all fields'); // User feedback for empty fields
+      alert('Please fill in all fields'); 
     }
   };
 
@@ -29,7 +29,7 @@ const App = () => {
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="Enter To Do"
+        placeholder="Add To Do"
       />
       <input
         type="text"
