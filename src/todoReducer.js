@@ -28,7 +28,7 @@ const todoReducer = (state, action) => {
       return {
         ...state,
         todo: state.todo.map((todo, index) =>
-          index === action.payload.index ? { ...todo, text: action.payload.text, editing: false } : todo
+          index === action.payload.index ? { ...todo, text: action.payload.text, editing: true} : todo
         ),
       };
     case 'EDIT_CATEGORY':
