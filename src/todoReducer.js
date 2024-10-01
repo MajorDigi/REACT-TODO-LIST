@@ -1,12 +1,12 @@
 const initialState = {
-    todos: [],
+    todo: [],
   };
   
   const todoReducer = (state, action) => {
     switch (action.type) {
       case 'ADD_TODO':
         return {
-          todos: [
+          todo: [
             {
               text: action.payload.text,
               complete: false,
@@ -14,29 +14,29 @@ const initialState = {
               category: action.payload.category,
               priority: action.payload.priority,
             },
-            ...state.todos,
+            ...state.todo,
           ],
         };
       case 'TOGGLE_COMPLETE':
         return {
           ...state,
-          todos: state.todos.map((todo, index) =>
+          todo: state.todo.map((todo, index) =>
             index === action.payload ? { ...todo, complete: !todo.complete } : todo
           ),
         };
       case 'EDIT_TODO':
         return {
           ...state,
-          todos: state.todos.map((todo, index) =>
+          todo: state.todo.map((todo, index) =>
             index === action.payload.index ? { ...todo, text: action.payload.text, editing: false } : todo
           ),
         };
       case 'DELETE_TODO':
-        return { todos: state.todos.filter((_, index) => index !== action.payload) };
+        return { todo: state.todo.filter((_, index) => index !== action.payload) };
       case 'SET_EDITING':
         return {
           ...state,
-          todos: state.todos.map((todo, index) =>
+          todo: state.todo.map((todo, index) =>
             index === action.payload ? { ...todo, editing: !todo.editing } : todo
           ),
         };

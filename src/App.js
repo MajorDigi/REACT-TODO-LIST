@@ -18,6 +18,7 @@ const App = () => {
       setCategory('');
       setPriority('');
     } else {
+      alert('Please fill in all fields'); // User feedback for empty fields
       alert('Please fill in all fields'); 
     }
   };
@@ -29,6 +30,7 @@ const App = () => {
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
+        placeholder="Enter To Do"
         placeholder="Add To Do"
       />
       <input
@@ -44,7 +46,7 @@ const App = () => {
         placeholder="Priority"
       />
       <button onClick={handleAddTodo}>Add To Do</button>
-      {state.todos.map((todo, index) => (
+      {state.todo.map((todo, index) => (
         <div key={index} className={`todo-item ${todo.priority}`}>
           {todo.editing ? (
             <input
