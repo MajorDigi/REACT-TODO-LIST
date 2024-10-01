@@ -11,14 +11,14 @@ const App = () => {
   const handleAddTodo = () => {
     if (newTodo && category && priority) {
       dispatch({
-        type: 'ADD_TODO', // Corrected typo
+        type: 'ADD_TODO', 
         payload: { text: newTodo, category, priority },
       });
       setNewTodo('');
       setCategory('');
       setPriority('');
     } else {
-      alert('Please fill in all fields'); // User feedback for empty fields
+      alert('Please fill in all fields'); 
     }
   };
 
