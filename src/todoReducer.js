@@ -28,10 +28,15 @@ const todoReducer = (state, action) => {
       return {
         ...state,
         todo: state.todo.map((todo, index) =>
-          index === action.payload.index
-            ? { ...todo, text: action.payload.text, category: action.payload.category, priority: action.payload.priority }
-            : todo
+          index === action.payload.index ? { ...todo, text: action.payload.text, editing: false } : todo
         ),
+      };
+    case 'EDIT_CATEGORY':
+          return {
+            ...state,
+            category: state.category.map((category, index) =>
+              index === action.payload.index ? { ...category, text: action.payload.text, editing: false } : category
+            ),
       };
     case 'DELETE_TODO':
       return { todo: state.todo.filter((_, index) => index !== action.payload) };
